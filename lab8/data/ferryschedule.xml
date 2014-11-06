@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!-- COMP 4711, Fall 2014, lab 6
+BC Ferries, Fall2014, Southern Gluf Islands route
+-->
+<!DOCTYPE schedule SYSTEM 'ferryschedule.dtd'>
+
+<schedule>
+    <route>Southern Gulf Islands to Mainland</route>
+    <effective-date>September 2 - October 16, 2014</effective-date>
+    
+    <!-- Define the ports on this route -->
+    <ports>
+        <port code="LH">Long Harbour (Salt Spring)</port>
+        <port code="SB">Sturdies Bay (Galiano)</port>
+        <port code="OB">Otter Bay (Pender)</port>
+        <port code="VB">Village Bay (Mayne)</port>
+        <port code="TS">Tsawwassen (Mainland)</port>
+        <port code="FH">Fulford Harbor(Salt Spring Island)</port>
+        
+    </ports>
+    
+    <!-- Define the days of the week we want to use -->
+    <days>
+        <day code="M">Monday</day>
+        <day code="T">Tuesday</day>
+        <day code="W">Wednesday</day>
+        <day code="R">Thursday</day>
+        <day code="F">Friday</day>
+        <day code="S">Saturday</day>
+        <day code="U">Sunday</day>
+        
+    </days>
+   
+    <!-- Here are the morning eastbound sailings -->
+    <!-- Sailing from Long Harbour to Tsawwassen, 3 stops Pender, Mayne, Galiano -->
+    <sailing origin="LH" destination="TS" days="MTWRF" depart="0615" arrive="0920">
+        <stop port="OB" arrive="0655" depart="0705"/>
+        <stop port="VB" arrive="0730" depart="0745"/>
+        <stop port="SB" arrive="0815" depart="0825"/>
+    </sailing>
+    
+    <!-- Sailing from Long Harbour to Tsawwassen, non stop -->
+    <sailing origin="LH" destination="TS" days="S" depart="0630" arrive="0755">    
+    </sailing>
+    
+    <!-- Sailing from Long Harbour to Tsawwassen, 3 stops, Pender, Mayne, Galiano -->
+    <sailing origin="LH" destination="TS" days="U" depart="0715" arrive="1020">
+        <stop port="OB" arrive="0755" depart="0805" />
+        <stop port="VB" arrive="0830" depart="0840" />        
+        <stop port="SB" arrive="0915" depart="0925" />
+    </sailing>
+    
+    <!-- Here are the afternoon eastbound sailings -->
+    <!-- Sailing from Long Harbour to Tsawwassen, non stop -->
+    <sailing origin="LH" destination="TS" days="F" depart="1405" arrive="1525">
+    </sailing>
+    
+    <!-- Sailing from Long Harbour to Tsawwassen, 3 stops, Pender, Mayne, Galiano -->
+    <sailing origin="LH" destination="TS" days="TWR" depart="1515" arrive="1835">
+        <stop port="OB" arrive="1555" depart="1605" />
+        <stop port="VB" arrive="1630" depart="1640" />
+        <stop port="SB" arrive="1725" depart="1730" />
+    </sailing>
+    
+    <!-- Sailing from Long Harbour to Tsawwassen, 2 stops, Mayne, Galano -->
+    <sailing origin="LH" destination="TS" days="U" depart="1530" arrive="1800">
+        <stop port="VB" arrive="1605" depart="1615" />
+        <stop port="SB" arrive="1650" depart="1700" />
+    </sailing>
+    
+    <!-- Sailing from Long Harbour to Tsawwassen, 3 stops, Pender, Mayne, Galiano -->
+    <!-- <sailing origin="LH" destination="TS" days="S" depart="1535" arrive="1835"> -->
+    <sailing origin="LH" destination="TS" days="S" depart="1535" arrive="1835">
+        <stop port="OB" arrive="1615" depart="1625" />
+        <stop port="VB" arrive="1650" depart="1700" />
+        <stop port="SB" arrive="1730" depart="1740" />
+    </sailing>
+    
+    <!-- Here are the morning/afternoon westbound sailings -->
+    <!-- Sailing from Tsawwassen to Long Harbour, 3 stops, Galiano, Mayne, Pender -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="MTWRF" depart="1010" arrive="1330">
+        <stop port="SB" arrive="1105" depart="1115" />
+        <stop port="VB" arrive="1145" depart="1155" />
+        <stop port="OB" arrive="1220" depart="1230" />
+        <stop port="FH" arrive="1300" depart="1310" />
+    </sailing>
+    
+    <!-- Sailing from Tsawwassen to Long Harbour, 3 stops, Galiano, Mayne, Pender -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="U" depart="1110" arrive="1430">
+        <stop port="SB" arrive="1205" depart="1215" />
+        <stop port="VB" arrive="1245" depart="1255" />
+        <stop port="OB" arrive="1320" depart="1330" />
+        <stop port="FH" arrive="1400" depart="1410" />
+    </sailing>
+    
+    <!-- Sailing from Tsawwassen to Long Harbour, non stop -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="S" depart="1215" arrive="1400">
+        <stop port="FH" arrive="1330" depart="1340" />
+    </sailing>
+    
+    <!-- Here are the evening/night westbound sailings -->
+    <!-- Sailing from Tsawwassen to Long Harbour, 3 stops, Galiano, Mayne, Pender -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="TWR" depart="1920" arrive="2240">
+        <stop port="SB" arrive="2015" depart="2025" />
+        <stop port="VB" arrive="2055" depart="2105" />
+        <stop port="OB" arrive="2130" depart="2140" />
+        <stop port="FH" arrive="2210" depart="2220" />
+    </sailing>
+    
+    <!-- Sailing from Tsawwassen to Long Harbour, 2 stops, Galiano, Pender -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="F" depart="1940" arrive="2240">
+        <stop port="SB" arrive="2035" depart="2045" />
+        <stop port="OB" arrive="2130" depart="2140" />
+        <stop port="FH" arrive="2210" depart="2220" />
+    </sailing>
+    
+    <!-- Sailing from Tsawwassen to Long Harbour, 2 stops, Galiano, Mayne -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="S" depart="2045" arrive="2320">
+        <stop port="SB" arrive ="2140" depart="2150" />
+        <stop port="VB" arrive ="2215" depart="2225" />
+        <stop port="FH" arrive="2250" depart="2300" />
+    </sailing>
+    
+    <!-- Sailing from Tsawwassen to Long Harbor non stop -->
+    <!-- extra stop added: Fulford Harbor, takes extra 20 minutes to get to extra stop and 20 minutes to destinations. -->
+    <sailing origin="TS" destination="LH" days="U" depart="2125" arrive="2320"> 
+        <stop port="FH" arrive="2250" depart="2300" />       
+    </sailing>
+    
+    <!-- -->
+
+</schedule>

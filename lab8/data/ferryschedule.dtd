@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!--
+    TODO define vocabulary identification data
+    PUBLIC ID  : -//vendor//vocabulary//EN
+    SYSTEM ID  : http://server/path/__NAME__
+-->
+
+<!-- COMP 4711, Fall 2014, lab 6
+BC Ferries, Fall2014, Southern Gluf Islands route
+-->
+
+<!-- BC Ferries schedule -->
+<!ELEMENT schedule (route, effective-date, ports, days, sailing*)>
+
+<!-- Description of the route, for later reporting -->
+<!ELEMENT route (#PCDATA)>
+
+<!-- Effective data, for later reporting -->
+<!ELEMENT effective-date (#PCDATA)>
+
+<!-- A table of valid ports, to be looked up under program control -->
+<!ELEMENT ports (port)*>
+<!ELEMENT port (#PCDATA)>
+<!ATTLIST port 
+    code CDATA #REQUIRED>
+
+<!-- A table of valid day codes -->
+<!ELEMENT days (day)*>
+<!ELEMENT day (#PCDATA)>
+<!ATTLIST day 
+    code CDATA #REQUIRED>
+
+<!-- A sailing is a trip between the two end-points of the Southern Gulf Islands
+ferry run, namely Long Harbour (Salt Spring) and Tsawwassen (mainland).
+Each sailing has an origin and destination port, departure and arrival times
+between these, and then a days attribute specifiying which days of the week this
+sailing applies to.
+A sailing may have any number of stops along the way. -->
+
+<!ELEMENT sailing (stop)*>
+<!ATTLIST sailing
+    origin      (LH|OB|VB|SB|TS|FH)    "LH"
+    destination (LH|OB|VB|SB|TS|FH)    "LH"
+    depart      CDATA               #REQUIRED
+    arrive      CDATA               #REQUIRED
+    days        CDATA               #REQUIRED>
+
+<!-- A stope along the way between Salt Spring and Tsawwassen. -->
+<!ELEMENT stop (#PCDATA)>
+<!ATTLIST stop
+    port    (LH|OB|VB|SB|TS|FH)    "LH"
+    depart  CDATA               #REQUIRED
+    arrive  CDATA               #REQUIRED>
