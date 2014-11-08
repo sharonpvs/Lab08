@@ -63,7 +63,7 @@ class Planner extends Application {
         //$this->input->post('leaving'), 
         // $this->input->post('destination'));
         
-        $result = $this­>get_trips_remotely(post('leaving'), post('destination'));
+        $result = $this->get_trips_remotely(post('leaving'), post('destination'));
 
         
 	// add each result to our sailings array
@@ -84,7 +84,6 @@ class Planner extends Application {
 
     function get_ports_remotely() 
     {
-        $ports = array();
         $from  = 'LH';
         $to    = 'TS';
         
@@ -97,12 +96,31 @@ class Planner extends Application {
         
         $this->xmlrpc->request($request);
 
-        if (!$this->xmlrpc->send_request()) {
+        if (!$this->xmlrpc->send_request())
+        {
             echo $this->xmlrpc->display_error();
         }
         $ports = $this->xmlrpc->display_response();
         
         return $ports;
+    }
+    
+    function get_trips_remotely($from, $to)
+    {
+        $this->xmlrpc->server($server_url, $port);
+        
+        //still
+        $this->xmlrpc->method('getTrips');
+
+        $request = array($from, $to);
+        
+        $this->xmlrpc->request($request);
+
+        if (!$this->xmlrpc->send_request()) 
+        {
+            echo $this->xmlrpc->display_error();
+        }
+        $ports = $this->xmlrpc->display_response();
     }
 }
 
