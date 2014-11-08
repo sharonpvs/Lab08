@@ -58,5 +58,5 @@ class Remote extends CI_Controller {
 
 }
 
-/* End of file lab12serverX.php */
-/* Location: ./application/controllers/lab12serverX.php */
+/* End of file remote.php */
+/* Location: ./application/controllers/remote.php */
