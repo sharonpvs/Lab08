@@ -1,19 +1,21 @@
-<h2> Your Custom Travel Plan </h2>
-
-<p>From {start} to {end}
+<h4>From {origin} to {destination}</h4>
+<div class="{alerting}">
+    {errormessages}
+</div>
 <table class="table">
     <tr>
-        <td>Leaves</td>
-        <td>Arrives</td>
-        <td>Stops</td>
+        <th>Leaves</th>
+        <th>Arrives</th>
+        <th>Stops</th>
     </tr>
-    {trips}
+    {sailings}
     <tr>
-        <td id="depart">{depart}</td>
-        <td id="arrive">{arrive}</td>
-        <td id="stops">{stops}</td>
+        <td>{depart}</td>
+        <td>{arrive}</td>
+        <td>{stops}</td>
     </tr>
-    {/trips}
+    {/sailings}
 </table>
 
-<a href="/" class="btn btn-primary">Another Trip?</a>
+
+<a href="/planner" class="btn btn-large btn-primary">Next Trip</a>
