@@ -15,7 +15,7 @@ class Ferryschedule extends CI_Model {
     function __construct() 
     {
         parent::__construct();
-        $this->xml=simplexml_load_file("data/ferryschedule.xml");
+        $this->xml = simplexml_load_file("data/ferryschedule.xml");
     }
     
     /**
