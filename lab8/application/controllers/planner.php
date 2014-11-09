@@ -27,10 +27,10 @@ class Planner extends Application {
 
 
         // get all the ports from our model
-        $ports = $this->ferryschedule->getPorts();
+        //$ports = $this->ferryschedule->getPorts();
         
         //xmlrpc client
-        //$ports = $this->get_ports_remotely();
+        $ports = $this->get_ports_remotely();
 
         //making view
         $this->data['leaving'] = makeComboField("Leaving from", "leaving", "TS", $ports);
@@ -45,10 +45,10 @@ class Planner extends Application {
         $this->data['pagebody'] = 'tripresult';
         $this->data['title'] = "Custom Travel Plan";
         
-        $ports = $this->ferryschedule->getPorts();
+        //$ports = $this->ferryschedule->getPorts();
         
         //xml rpc
-        //$ports = $this->get_ports_remotely();
+        $ports = $this->get_ports_remotely();
         
 	$origin = $ports[$this->input->post('leaving')];
         $depart = $ports[$this->input->post('destination')];
@@ -87,7 +87,7 @@ class Planner extends Application {
         $from  = 'LH';
         $to    = 'TS';
         
-        $this->xmlrpc->server($server_url, $port);
+        $this->xmlrpc->server(RPC_SERVER, RPC_PORT);
         
         //still
         $this->xmlrpc->method('getPorts');
