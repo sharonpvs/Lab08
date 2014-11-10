@@ -59,8 +59,9 @@ class Admin extends Application {
         $this->data['title'] = 'Jim\'s Joint Maintenance (step 3)!';
         $this->data['pagebody'] = 'edit3';
 
-        $record = $this->menu->get($which);
-
+        //$record = $this->menu->get($which);
+        $record = $this->get_item_remotely($which);
+        
         // and pass the item's fields on
         $this->data = array_merge($this->data, (array) $record);
 
@@ -83,9 +84,11 @@ class Admin extends Application {
 
         // update if ok
         if (count($this->errors) < 1) {
-            $record = $this->menu->get($which);
+            //$record = $this->menu->get($which);
+            $record = $this->get_item_remotely($which);
             $record = array_merge((array) $record, $fields);
-            $this->menu->update($record);
+            //$this->menu->update($record);
+            $this->update_item_remotely($record);
             redirect('/admin/list2');
         } else {
             $this->edit3($which);
@@ -112,7 +115,8 @@ class Admin extends Application {
         // if no item-in progress record {
         if ($item_record == null) {
             // get the item record from the items model
-            $item_record = (array) $this->menu->get($which);
+            //$item_record = (array) $this->menu->get($which);
+            $item_record = (array) $this->get_item_remotely($which);
             // save it as the “item” session object
             $this->session->set_userdata('item', $item_record);
         }
@@ -145,7 +149,8 @@ class Admin extends Application {
         // update if ok
         if (count($this->errors) < 1) {
             // store the merged record into the model
-            $this->menu->update($record);
+            //$this->menu->update($record);
+            $this->update_item_remotely($record);
             // remove the item record from the session container
             $this->session->unset_userdata('item');
             redirect('/admin/list2');
@@ -174,7 +179,8 @@ class Admin extends Application {
         // if no item-in progress record {
         if ($item_record == null) {
             // get the item record from the items model
-            $item_record = (array) $this->menu->get($which);
+            //$item_record = (array) $this->menu->get($which);
+            $item_record = (array) $this->get_item_remotely($which);
             // save it as the “item” session object
             $this->session->set_userdata('item', $item_record);
         }
@@ -219,7 +225,8 @@ class Admin extends Application {
         // update if ok
         if (count($this->errors) < 1) {
             // store the merged record into the model
-            $this->menu->update($record);
+            //$this->menu->update($record);
+            $this->update_item_remotely($record);
             // remove the item record from the session container
             $this->session->unset_userdata('item');
             redirect('/admin/list2');
