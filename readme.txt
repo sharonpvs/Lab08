@@ -1,0 +1,2 @@
+xmlrpc client and server should be finished, but the list isn't updating when applied to the site. Not sure why it isnt working 100%.
+Rest client and server were attempted, but not finished. parts were attempted and the idea is there.
