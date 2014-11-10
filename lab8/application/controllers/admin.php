@@ -19,6 +19,18 @@ class Admin extends Application {
     //  The normal pages
     //-------------------------------------------------------------
 
+    
+    function get_item_remotely($num)
+    {
+        $this->xmlrpc->server(RPC_SERVER, RPC_PORT);
+        
+    }
+    function update_item_remotely($num)
+    {
+        
+    }
+
+    
     function index() {
         $this->data['title'] = 'Jim\'s Joint Administration!';
         $this->data['pagebody'] = 'admin';
@@ -234,5 +246,44 @@ class Admin extends Application {
             $this->edit5($which);
         }
     }
+    
+    
+    
+    function index_get() 
+    {
+        $key = $this->get('code');
+        if (!$key) {
+            $this->response($this->products->getAll_array(), 200);
+        } else {
+            $result = $this->products->get($key);
+            if ($result != null)
+                $this->response($result, 200);
+            else
+                $this->response(array('error' => 'Product not found!'), 404);
+        }
+    }
 
+    function index_post() 
+    {
+        $key = $this->get('code');
+        $record = array_merge(array('code' => $key), $_POST);
+        $this->products->add($record);
+        $this->response(array('ok'), 200);
+    }
+
+    function index_put() 
+    {
+        $key = $this->get('code');
+        $record = array_merge(array('code' => $key), $this->_put_args);
+        $this->products->update($record);
+        $this->response(array('ok'), 200);
+    }
+
+    function index_delete() 
+    {
+        $key = $this->get('code');
+        $this->products->delete($key);
+        $this->response(array('ok'), 200);
+    }
+    
 }
