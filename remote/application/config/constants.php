@@ -41,8 +41,5 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
  * add RPC client server constants
  * not sure if this is needed here..............
  */
-define('RPC_SERVER',        "services.local/menuitem");
-define('RPC_PORT',          80);
-
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

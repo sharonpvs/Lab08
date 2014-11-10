@@ -110,7 +110,7 @@ class Planner extends Application {
         $this->xmlrpc->server($server_url, $port);
         
         //still
-        $this->xmlrpc->method('getTrips');
+        $this->xmlrpc->method('findSailings');
 
         $request = array($from, $to);
         

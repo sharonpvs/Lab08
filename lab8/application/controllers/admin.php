@@ -24,9 +24,23 @@ class Admin extends Application {
     {
         $this->xmlrpc->server(RPC_SERVER, RPC_PORT);
         
+        $this->xmlrpc->method('getItems');
+
+        $request = array($from, $to);
+        
+        $this->xmlrpc->request($request);
+
+        if (!$this->xmlrpc->send_request())
+        {
+            echo $this->xmlrpc->display_error();
+        }
+        $items = $this->xmlrpc->display_response();
+        
+        return $items;
     }
     function update_item_remotely($num)
     {
+        $this->xmlrpc->server(RPC_SERVER, RPC_PORT);
         
     }
 

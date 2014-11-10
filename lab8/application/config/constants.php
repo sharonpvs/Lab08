@@ -54,5 +54,10 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 define('RPC_SERVER',        "services.local/schedules");
 define('RPC_PORT',          80);
 
+
+define('REST_SERVER',        "services.local/Menuitem");
+define('REST_PORT',          80);
+
+
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
